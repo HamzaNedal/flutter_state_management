@@ -4,6 +4,7 @@ import 'package:flutter_state_management/InheritedWidget/shopping_cart/main.dart
 import 'package:flutter_state_management/simple_bolc/main.dart';
 import 'package:flutter_state_management/statefulBuilder.dart';
 import 'package:flutter_state_management/statefulWidget.dart';
+import 'package:flutter_state_management/timer/main.dart';
 
 void main() => runApp(MyApp());
 
@@ -21,6 +22,7 @@ class MyApp extends StatelessWidget {
           '/inheritedWidget': (context) => Home_InheritedWidget(),
           '/homeShoppingCart': (context) => HomeShoppingCart(),
           '/mainCounter': (context) => MainCounter(),
+          '/timer': (context) => Timer(),
         },
         title: 'Flutter State Management',
         theme: ThemeData(
@@ -68,7 +70,13 @@ class MyApp extends StatelessWidget {
                         onPressed: () {
                           Navigator.pushNamed(context, '/mainCounter');
                         },
-                        child: Text("Bloc"),
+                        child: Text("BlocCounter"),
+                      ),
+                      RaisedButton(
+                        onPressed: () {
+                          Navigator.pushNamed(context, '/timer');
+                        },
+                        child: Text("BlocTimer"),
                       ),
                     ],
                   ),

@@ -1,27 +1,32 @@
-import 'dart:async';
-
 import 'package:equatable/equatable.dart';
 
 abstract class TimerState extends Equatable {
-  final int duration;
-  const TimerState(this.duration);
+  int duration;
+  TimerState(this.duration);
 
   @override
   List<Object> get props => [duration];
 }
 
+// class InitialState extends TimerState {
+//   int duration = 0;
+//   InitialState({this.duration}) : super(0);
+//   @override
+//   List<Object> get props => [duration];
+// }
+
 class Ready extends TimerState {
-  const Ready(int duration) : super(duration);
+  Ready(int duration) : super(duration);
 }
 
 class Paused extends TimerState {
-  const Paused(int duration) : super(duration);
+  Paused(int duration) : super(duration);
 }
 
 class Running extends TimerState {
-  const Running(int duration) : super(duration);
+  Running(int duration) : super(duration);
 }
 
 class Finished extends TimerState {
-  const Finished(int duration) : super(duration);
+  Finished(int duration) : super(0);
 }
