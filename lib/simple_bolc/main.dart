@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_state_management/bloc/bloc_observer.dart';
-import 'package:flutter_state_management/bloc/counter_bloc/bloc.dart';
-import 'package:flutter_state_management/bloc/counter_bloc/event.dart';
+import 'package:flutter_state_management/simple_bolc/bloc_observer.dart';
+import 'package:flutter_state_management/simple_bolc/counter_bloc/bloc.dart';
+import 'package:flutter_state_management/simple_bolc/counter_bloc/event.dart';
 
 class MainCounter extends StatelessWidget {
   @override

@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_state_management/InheritedWidget/main.dart';
-import 'package:flutter_state_management/InheritedWidget/shopping_cart/cart.dart';
 import 'package:flutter_state_management/InheritedWidget/shopping_cart/main.dart';
-import 'package:flutter_state_management/bloc/main.dart';
+import 'package:flutter_state_management/simple_bolc/main.dart';
 import 'package:flutter_state_management/statefulBuilder.dart';
 import 'package:flutter_state_management/statefulWidget.dart';
 
