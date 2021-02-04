@@ -33,6 +33,8 @@ dependencies:
   flutter_bloc: ^6.1.1
   equatable: ^1.2.5
   wave: ^0.1.0
+  http: ^0.12.2
+  provider: ^4.3.3
 dev_dependencies:
   flutter_test:
     sdk: flutter

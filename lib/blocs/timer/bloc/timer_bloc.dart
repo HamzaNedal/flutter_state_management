@@ -2,16 +2,17 @@ import 'dart:async';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter/foundation.dart';
-import 'package:flutter_state_management/timer/bloc/timer_state.dart';
-import 'package:flutter_state_management/timer/bloc/timer_event.dart';
-import 'package:flutter_state_management/timer/ticker.dart';
+import 'package:flutter_state_management/blocs/timer/bloc/timer_state.dart';
+import 'package:flutter_state_management/blocs/timer/bloc/timer_event.dart';
+import 'package:flutter_state_management/blocs/timer/ticker.dart';
 
 class TimerBloc extends Bloc<TimerEvent, TimerState> {
   final Ticker _ticker;
+  final int _duration;
   StreamSubscription<int> _tickerSubscription;
-  TimerBloc({duration: 0, @required Ticker ticker})
+  TimerBloc(this._duration, Ticker ticker)
       : this._ticker = ticker,
-        super(Ready(duration));
+        super(Ready(_duration));
 
   // TimerState get initialState => Ready(_duration);
 
@@ -37,7 +38,7 @@ class TimerBloc extends Bloc<TimerEvent, TimerState> {
       }
     } else if (event is Reset) {
       _tickerSubscription?.cancel();
-      yield Ready(0);
+      yield Ready(_duration);
     } else if (event is Tick) {
       Tick tick = event;
       yield tick.duration > 0

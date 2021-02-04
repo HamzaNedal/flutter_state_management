@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_state_management/InheritedWidget/main.dart';
 import 'package:flutter_state_management/InheritedWidget/shopping_cart/main.dart';
-import 'package:flutter_state_management/simple_bolc/main.dart';
+import 'package:flutter_state_management/Porvider/main.dart';
+import 'package:flutter_state_management/blocs/bloc_with_repository/main.dart';
+import 'package:flutter_state_management/blocs/simple_bolc/main.dart';
+import 'package:flutter_state_management/provider_select/main.dart';
 import 'package:flutter_state_management/statefulBuilder.dart';
 import 'package:flutter_state_management/statefulWidget.dart';
-import 'package:flutter_state_management/timer/main.dart';
+import 'package:flutter_state_management/blocs/timer/main.dart';
 
 void main() => runApp(MyApp());
 
@@ -23,6 +26,9 @@ class MyApp extends StatelessWidget {
           '/homeShoppingCart': (context) => HomeShoppingCart(),
           '/mainCounter': (context) => MainCounter(),
           '/timer': (context) => Timer(),
+          '/posts': (context) => Posts(),
+          '/provider': (context) => MainAppProvider(),
+          '/provider-select': (context) => ProviderSelect(),
         },
         title: 'Flutter State Management',
         theme: ThemeData(
@@ -32,7 +38,7 @@ class MyApp extends StatelessWidget {
         home: Builder(
             builder: (context) => Scaffold(
                 appBar: AppBar(
-                  title: Text('State Managemt'),
+                  title: Text('State Management'),
                 ),
                 body: Center(
                   child: Column(
@@ -51,11 +57,6 @@ class MyApp extends StatelessWidget {
                       ),
                       RaisedButton(
                         onPressed: () {
-                          // Navigator.push(
-                          //     context,
-                          //     MaterialPageRoute(
-                          //         builder: (context) =>
-                          //             Home_InheritedWidget()));
                           Navigator.pushNamed(context, '/inheritedWidget');
                         },
                         child: Text("InheritedWidget"),
@@ -77,6 +78,24 @@ class MyApp extends StatelessWidget {
                           Navigator.pushNamed(context, '/timer');
                         },
                         child: Text("BlocTimer"),
+                      ),
+                      RaisedButton(
+                        onPressed: () {
+                          Navigator.pushNamed(context, '/posts');
+                        },
+                        child: Text("blocWithRepository"),
+                      ),
+                      RaisedButton(
+                        onPressed: () {
+                          Navigator.pushNamed(context, '/provider');
+                        },
+                        child: Text("Provider"),
+                      ),
+                      RaisedButton(
+                        onPressed: () {
+                          Navigator.pushNamed(context, '/provider-select');
+                        },
+                        child: Text("ProviderSelect"),
                       ),
                     ],
                   ),

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_state_management/timer/bloc/bloc.dart';
-import 'package:flutter_state_management/timer/ticker.dart';
+import 'package:flutter_state_management/blocs/timer/bloc/bloc.dart';
+import 'package:flutter_state_management/blocs/timer/ticker.dart';
 import 'package:wave/config.dart';
 import 'package:wave/wave.dart';
 
@@ -14,7 +14,7 @@ class Timer extends StatelessWidget {
           accentColor: Color.fromRGBO(72, 74, 126, 1),
           brightness: Brightness.dark),
       home: BlocProvider(
-        create: (_) => TimerBloc(duration: 1500, ticker: Ticker()),
+        create: (_) => TimerBloc(5, Ticker()),
         child: Home(),
       ),
     );
@@ -90,7 +90,6 @@ class Home extends StatelessWidget {
                 buildWhen: (previousState, state) =>
                     state.runtimeType != previousState.runtimeType,
                 builder: (context, state) {
-                  print('x');
                   return Actions();
                 },
               )
@@ -114,7 +113,6 @@ class Actions extends StatelessWidget {
 
   List<Widget> _mapStateToActionButtons({TimerBloc timerBloc}) {
     final TimerState currentState = timerBloc.state;
-    print(timerBloc.state);
     if (timerBloc.state is Ready) {
       return [
         FloatingActionButton(
